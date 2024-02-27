@@ -3,6 +3,13 @@
                              https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.2.3</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
     <groupId>com.belas.ika</groupId>
     <artifactId>ika-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -11,10 +18,6 @@
     <description>Description for Ika Demo</description>
 
     <properties>
-        <!--
-            Build properties
-            The spring-boot version should match the one managed by https://mvnrepository.com/artifact/tech.jhipster/jhipster-dependencies/${jhipster-dependencies.version}
-        -->
         <maven.version>3.2.5</maven.version>
         <java.version>17</java.version>
         <node.version>v18.18.2</node.version>
@@ -30,6 +33,11 @@
         <run.addResources>false</run.addResources>
         <jhipster-dependencies.version>8.1.0</jhipster-dependencies.version>
         <spring-boot.version>3.2.0</spring-boot.version>
+        <spring-cloud.version>2023.0.0</spring-cloud.version>
+        <springdocs.version>2.3.0</springdocs.version>
+        <testcontainers.version>1.19.3</testcontainers.version>
+        <cucumber-jvm.version>7.14.1</cucumber-jvm.version>
+        <testng.version>7.8.0</testng.version>
         <archunit-junit5.version>1.2.1</archunit-junit5.version>
         <checkstyle.version>10.12.5</checkstyle.version>
         <checksum-maven-plugin.version>1.11</checksum-maven-plugin.version>
@@ -79,10 +87,27 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- BOM imports last so we (could) selectively override dependencies above -->
             <dependency>
-                <groupId>tech.jhipster</groupId>
-                <artifactId>jhipster-dependencies</artifactId>
-                <version>${jhipster-dependencies.version}</version>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi</artifactId>
+                <version>${springdocs.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.testcontainers</groupId>
+                <artifactId>testcontainers-bom</artifactId>
+                <version>${testcontainers.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -90,10 +115,11 @@
     </dependencyManagement>
 
     <dependencies>
-        <dependency>
-            <groupId>tech.jhipster</groupId>
-            <artifactId>jhipster-framework</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.jhipster</groupId>-->
+<!--            <artifactId>jhipster-framework</artifactId>-->
+<!--        </dependency>-->
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
@@ -102,6 +128,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-loader-tools</artifactId>
+            <version>${spring-boot.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -165,6 +192,7 @@
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
+            <version>${springdocs.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
@@ -203,16 +231,19 @@
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
+            <version>${cucumber-jvm.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-junit-platform-engine</artifactId>
+            <version>${cucumber-jvm.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-spring</artifactId>
+            <version>${cucumber-jvm.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -293,6 +324,7 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -584,7 +616,6 @@
                     <version>${maven-eclipse-plugin.version}</version>
                     <configuration>
                         <downloadSources>true</downloadSources>
-                        <downloadJavadocs>true</downloadJavadocs>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -846,8 +877,9 @@
                         </dependency>
                         <dependency>
                             <groupId>org.liquibase.ext</groupId>
-                            <artifactId>liquibase-hibernate6</artifactId>
-                            <version>${liquibase.version}</version>
+                            <artifactId>liquibase-hibernate5</artifactId>
+                            <version>4.3.5</version>
+<!--                            <version>${liquibase.version}</version>-->
                         </dependency>
                         <dependency>
                             <groupId>org.springframework.boot</groupId>
@@ -1030,11 +1062,6 @@
                 <!-- default Spring profiles -->
                 <spring.profiles.active>prod${profile.api-docs}${profile.tls}${profile.e2e}${profile.no-liquibase}</spring.profiles.active>
                 <profile.test>testprod</profile.test>
-                <liquibase-plugin.hibernate-dialect>org.hibernate.dialect.Oracle12cDialect</liquibase-plugin.hibernate-dialect>
-                <liquibase-plugin.driver>oracle.jdbc.OracleDriver</liquibase-plugin.driver>
-                <liquibase-plugin.url>jdbc:oracle:thin:@localhost:1521:xe</liquibase-plugin.url>
-                <liquibase-plugin.username>system</liquibase-plugin.username>
-                <liquibase-plugin.password>oracle</liquibase-plugin.password>
             </properties>
             <build>
                 <plugins>
@@ -1254,7 +1281,7 @@
             </build>
             <properties>
                 <!-- default Spring profiles -->
-                <spring.profiles.active>dev${profile.no-liquibase}</spring.profiles.active>
+                <spring.profiles.active>dev</spring.profiles.active>
             </properties>
         </profile>
     </profiles>

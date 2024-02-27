@@ -10,7 +10,6 @@ import org.springframework.core.annotation.AnnotatedElementUtils;
 import org.springframework.test.context.ContextConfigurationAttributes;
 import org.springframework.test.context.ContextCustomizer;
 import org.springframework.test.context.ContextCustomizerFactory;
-import tech.jhipster.config.JHipsterConstants;
 
 public class SqlTestContainersSpringContextCustomizerFactory implements ContextCustomizerFactory {
 
@@ -26,7 +25,7 @@ public class SqlTestContainersSpringContextCustomizerFactory implements ContextC
             EmbeddedSQL sqlAnnotation = AnnotatedElementUtils.findMergedAnnotation(testClass, EmbeddedSQL.class);
             boolean usingTestProdProfile = Arrays
                 .asList(context.getEnvironment().getActiveProfiles())
-                .contains("test" + JHipsterConstants.SPRING_PROFILE_PRODUCTION);
+                .contains("test" + IkaConstants.SPRING_PROFILE_PRODUCTION);
             if (null != sqlAnnotation && usingTestProdProfile) {
                 log.debug("detected the EmbeddedSQL annotation on class {}", testClass.getName());
                 log.info("Warming up the sql database");

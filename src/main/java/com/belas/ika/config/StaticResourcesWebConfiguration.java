@@ -7,11 +7,9 @@ import org.springframework.http.CacheControl;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import tech.jhipster.config.JHipsterConstants;
-import tech.jhipster.config.JHipsterProperties;
 
 @Configuration
-@Profile({ JHipsterConstants.SPRING_PROFILE_PRODUCTION })
+@Profile({ IkaConstants.SPRING_PROFILE_PRODUCTION })
 public class StaticResourcesWebConfiguration implements WebMvcConfigurer {
 
     protected static final String[] RESOURCE_LOCATIONS = new String[] {
@@ -29,10 +27,10 @@ public class StaticResourcesWebConfiguration implements WebMvcConfigurer {
         "/i18n/*",
     };
 
-    private final JHipsterProperties jhipsterProperties;
+    private final IkaProperties ikaProperties;
 
-    public StaticResourcesWebConfiguration(JHipsterProperties jHipsterProperties) {
-        this.jhipsterProperties = jHipsterProperties;
+    public StaticResourcesWebConfiguration(IkaProperties ikaProperties) {
+        this.ikaProperties = ikaProperties;
     }
 
     @Override
@@ -54,6 +52,6 @@ public class StaticResourcesWebConfiguration implements WebMvcConfigurer {
     }
 
     private int getJHipsterHttpCacheProperty() {
-        return jhipsterProperties.getHttp().getCache().getTimeToLiveInDays();
+        return ikaProperties.getHttp().getCache().getTimeToLiveInDays();
     }
 }

@@ -1,5 +1,6 @@
 package com.belas.ika.config;
 
+import com.belas.ika.config.cache.PrefixedKeyGenerator;
 import java.time.Duration;
 import org.ehcache.config.builders.*;
 import org.ehcache.jsr107.Eh107Configuration;
@@ -12,8 +13,6 @@ import org.springframework.boot.info.GitProperties;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.*;
-import tech.jhipster.config.JHipsterProperties;
-import tech.jhipster.config.cache.PrefixedKeyGenerator;
 
 @Configuration
 @EnableCaching
@@ -23,8 +22,8 @@ public class CacheConfiguration {
     private BuildProperties buildProperties;
     private final javax.cache.configuration.Configuration<Object, Object> jcacheConfiguration;
 
-    public CacheConfiguration(JHipsterProperties jHipsterProperties) {
-        JHipsterProperties.Cache.Ehcache ehcache = jHipsterProperties.getCache().getEhcache();
+    public CacheConfiguration(IkaProperties ikaProperties) {
+        IkaProperties.Cache.Ehcache ehcache = ikaProperties.getCache().getEhcache();
 
         jcacheConfiguration =
             Eh107Configuration.fromEhcacheCacheConfiguration(
@@ -48,7 +47,6 @@ public class CacheConfiguration {
             createCache(cm, com.belas.ika.domain.User.class.getName());
             createCache(cm, com.belas.ika.domain.Authority.class.getName());
             createCache(cm, com.belas.ika.domain.User.class.getName() + ".authorities");
-            // jhipster-needle-ehcache-add-entry
         };
     }
 

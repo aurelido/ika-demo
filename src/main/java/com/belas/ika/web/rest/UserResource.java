@@ -7,6 +7,9 @@ import com.belas.ika.security.AuthoritiesConstants;
 import com.belas.ika.service.MailService;
 import com.belas.ika.service.UserService;
 import com.belas.ika.service.dto.AdminUserDTO;
+import com.belas.ika.util.HeaderUtil;
+import com.belas.ika.util.PaginationUtil;
+import com.belas.ika.util.ResponseUtil;
 import com.belas.ika.web.rest.errors.BadRequestAlertException;
 import com.belas.ika.web.rest.errors.EmailAlreadyUsedException;
 import com.belas.ika.web.rest.errors.LoginAlreadyUsedException;
@@ -28,9 +31,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import tech.jhipster.web.util.HeaderUtil;
-import tech.jhipster.web.util.PaginationUtil;
-import tech.jhipster.web.util.ResponseUtil;
 
 /**
  * REST controller for managing users.
@@ -78,7 +78,7 @@ public class UserResource {
 
     private final Logger log = LoggerFactory.getLogger(UserResource.class);
 
-    @Value("${jhipster.clientApp.name}")
+    @Value("${ika.clientApp.name}")
     private String applicationName;
 
     private final UserService userService;

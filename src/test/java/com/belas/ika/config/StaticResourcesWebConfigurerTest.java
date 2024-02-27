@@ -12,8 +12,6 @@ import org.springframework.mock.web.MockServletContext;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import tech.jhipster.config.JHipsterDefaults;
-import tech.jhipster.config.JHipsterProperties;
 
 class StaticResourcesWebConfigurerTest {
 
@@ -22,14 +20,14 @@ class StaticResourcesWebConfigurerTest {
     private ResourceHandlerRegistry resourceHandlerRegistry;
     private MockServletContext servletContext;
     private WebApplicationContext applicationContext;
-    private JHipsterProperties props;
+    private IkaProperties props;
 
     @BeforeEach
     void setUp() {
         servletContext = spy(new MockServletContext());
         applicationContext = mock(WebApplicationContext.class);
         resourceHandlerRegistry = spy(new ResourceHandlerRegistry(applicationContext, servletContext));
-        props = new JHipsterProperties();
+        props = new IkaProperties();
         staticResourcesWebConfiguration = spy(new StaticResourcesWebConfiguration(props));
     }
 
@@ -59,7 +57,7 @@ class StaticResourcesWebConfigurerTest {
 
     @Test
     void shouldCreateCacheControlBasedOnJhipsterDefaultProperties() {
-        CacheControl cacheExpected = CacheControl.maxAge(JHipsterDefaults.Http.Cache.timeToLiveInDays, TimeUnit.DAYS).cachePublic();
+        CacheControl cacheExpected = CacheControl.maxAge(IkaPropertiesDefaults.Http.Cache.timeToLiveInDays, TimeUnit.DAYS).cachePublic();
         assertThat(staticResourcesWebConfiguration.getCacheControl())
             .extracting(CacheControl::getHeaderValue)
             .isEqualTo(cacheExpected.getHeaderValue());

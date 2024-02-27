@@ -1,8 +1,8 @@
 package com.belas.ika.web.rest.errors;
 
+import com.belas.ika.web.errors.ProblemDetailWithCause;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.ErrorResponseException;
-import tech.jhipster.web.rest.errors.ProblemDetailWithCause.ProblemDetailWithCauseBuilder;
 
 @SuppressWarnings("java:S110") // Inheritance tree of classes should not be too deep
 public class InvalidPasswordException extends ErrorResponseException {
@@ -12,7 +12,7 @@ public class InvalidPasswordException extends ErrorResponseException {
     public InvalidPasswordException() {
         super(
             HttpStatus.BAD_REQUEST,
-            ProblemDetailWithCauseBuilder
+            ProblemDetailWithCause.ProblemDetailWithCauseBuilder
                 .instance()
                 .withStatus(HttpStatus.BAD_REQUEST.value())
                 .withType(ErrorConstants.INVALID_PASSWORD_TYPE)

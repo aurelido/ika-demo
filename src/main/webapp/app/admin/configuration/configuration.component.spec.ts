@@ -31,10 +31,10 @@ describe('ConfigurationComponent', () => {
       // GIVEN
       const beans: Bean[] = [
         {
-          prefix: 'jhipster',
+          prefix: 'ikedev',
           properties: {
             clientApp: {
-              name: 'jhipsterApp',
+              name: 'ikaDemoApp',
             },
           },
         },

@@ -41,7 +41,7 @@ management:
           - prometheus
           - threaddump
           - caches
-          - liquibase
+  #          - liquibase
   endpoint:
     health:
       show-details: when_authorized
@@ -177,7 +177,7 @@ info:
 # Full reference is available at: https://www.jhipster.tech/common-application-properties/
 # ===================================================================
 
-jhipster:
+ika:
   clientApp:
     name: 'ikaDemoApp'
   # By default CORS is disabled. Uncomment to enable.
@@ -185,7 +185,7 @@ jhipster:
   #   allowed-origins: "http://localhost:8100,http://localhost:9000"
   #   allowed-methods: "*"
   #   allowed-headers: "*"
-  #   exposed-headers: "Authorization,Link,X-Total-Count,X-${jhipster.clientApp.name}-alert,X-${jhipster.clientApp.name}-error,X-${jhipster.clientApp.name}-params"
+  #   exposed-headers: "Authorization,Link,X-Total-Count,X-${ika.clientApp.name}-alert,X-${ika.clientApp.name}-error,X-${ika.clientApp.name}-params"
   #   allow-credentials: true
   #   max-age: 1800
   mail:
@@ -207,10 +207,7 @@ jhipster:
 # ===================================================================
 # Application specific properties
 # Add your own application properties here, see the ApplicationProperties class
-# to have type-safe configuration, like in the JHipsterProperties above
 #
-# More documentation is available at:
-# https://www.jhipster.tech/common-application-properties/
 # ===================================================================
 
 # application:

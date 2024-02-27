@@ -10,6 +10,7 @@
     "clientPackageManager": "npm",
     "creationTimestamp": 1708959785224,
     "databaseType": "sql",
+    "dbRandomPassword": "12d1216863c0e42c2bc7b4ff6c6a32fc9f111d94dd1282f090a3e0e18a84",
     "devDatabaseType": "h2Memory",
     "devServerPort": 4200,
     "enableHibernateCache": true,

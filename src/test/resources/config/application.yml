@@ -47,11 +47,10 @@ server:
   address: localhost
 
 # ===================================================================
-# JHipster specific properties
+# IKA specific properties
 #
-# Full reference is available at: https://www.jhipster.tech/common-application-properties/
 # ===================================================================
-jhipster:
+ika:
   clientApp:
     name: 'ikaDemoApp'
   mail:
@@ -77,10 +76,6 @@ jhipster:
 # ===================================================================
 # Application specific properties
 # Add your own application properties here, see the ApplicationProperties class
-# to have type-safe configuration, like in the JHipsterProperties above
-#
-# More documentation is available at:
-# https://www.jhipster.tech/common-application-properties/
 # ===================================================================
 
 # application:

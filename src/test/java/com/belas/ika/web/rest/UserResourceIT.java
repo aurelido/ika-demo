@@ -36,21 +36,21 @@ import org.springframework.transaction.annotation.Transactional;
 class UserResourceIT {
 
     private static final String DEFAULT_LOGIN = "johndoe";
-    private static final String UPDATED_LOGIN = "jhipster";
+    private static final String UPDATED_LOGIN = "ikadev";
 
     private static final Long DEFAULT_ID = 1L;
 
     private static final String DEFAULT_PASSWORD = "passjohndoe";
-    private static final String UPDATED_PASSWORD = "passjhipster";
+    private static final String UPDATED_PASSWORD = "passikadev";
 
     private static final String DEFAULT_EMAIL = "johndoe@localhost";
-    private static final String UPDATED_EMAIL = "jhipster@localhost";
+    private static final String UPDATED_EMAIL = "ikadev@localhost";
 
     private static final String DEFAULT_FIRSTNAME = "john";
-    private static final String UPDATED_FIRSTNAME = "jhipsterFirstName";
+    private static final String UPDATED_FIRSTNAME = "ikadevFirstName";
 
     private static final String DEFAULT_LASTNAME = "doe";
-    private static final String UPDATED_LASTNAME = "jhipsterLastName";
+    private static final String UPDATED_LASTNAME = "ikadevLastName";
 
     private static final String DEFAULT_IMAGEURL = "http://placehold.it/50x50";
     private static final String UPDATED_IMAGEURL = "http://placehold.it/40x40";
@@ -364,12 +364,12 @@ class UserResourceIT {
         userRepository.saveAndFlush(user);
 
         User anotherUser = new User();
-        anotherUser.setLogin("jhipster");
+        anotherUser.setLogin("ikadev");
         anotherUser.setPassword(RandomStringUtils.randomAlphanumeric(60));
         anotherUser.setActivated(true);
-        anotherUser.setEmail("jhipster@localhost");
-        anotherUser.setFirstName("java");
-        anotherUser.setLastName("hipster");
+        anotherUser.setEmail("ikadev@localhost");
+        anotherUser.setFirstName("Ika");
+        anotherUser.setLastName("Developer");
         anotherUser.setImageUrl("");
         anotherUser.setLangKey("en");
         userRepository.saveAndFlush(anotherUser);
@@ -382,7 +382,7 @@ class UserResourceIT {
         user.setLogin(updatedUser.getLogin());
         user.setFirstName(updatedUser.getFirstName());
         user.setLastName(updatedUser.getLastName());
-        user.setEmail("jhipster@localhost"); // this email should already be used by anotherUser
+        user.setEmail("ikadev@localhost"); // this email should already be used by anotherUser
         user.setActivated(updatedUser.isActivated());
         user.setImageUrl(updatedUser.getImageUrl());
         user.setLangKey(updatedUser.getLangKey());
@@ -404,12 +404,12 @@ class UserResourceIT {
         userRepository.saveAndFlush(user);
 
         User anotherUser = new User();
-        anotherUser.setLogin("jhipster");
+        anotherUser.setLogin("ikadev");
         anotherUser.setPassword(RandomStringUtils.randomAlphanumeric(60));
         anotherUser.setActivated(true);
-        anotherUser.setEmail("jhipster@localhost");
-        anotherUser.setFirstName("java");
-        anotherUser.setLastName("hipster");
+        anotherUser.setEmail("ikadev@localhost");
+        anotherUser.setFirstName("Ika");
+        anotherUser.setLastName("Developer");
         anotherUser.setImageUrl("");
         anotherUser.setLangKey("en");
         userRepository.saveAndFlush(anotherUser);
@@ -419,7 +419,7 @@ class UserResourceIT {
 
         AdminUserDTO user = new AdminUserDTO();
         user.setId(updatedUser.getId());
-        user.setLogin("jhipster"); // this login should already be used by anotherUser
+        user.setLogin("ikadev"); // this login should already be used by anotherUser
         user.setFirstName(updatedUser.getFirstName());
         user.setLastName(updatedUser.getLastName());
         user.setEmail(updatedUser.getEmail());

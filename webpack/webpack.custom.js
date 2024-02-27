@@ -101,7 +101,6 @@ module.exports = async (config, options, targetOptions) => {
       to: 'swagger-ui/',
     },
     { from: './src/main/webapp/swagger-ui/', to: 'swagger-ui/' },
-    // jhipster-needle-add-assets-to-webpack - JHipster will add/remove third-party resources in this array
   ];
 
   if (patterns.length > 0) {
@@ -125,16 +124,12 @@ module.exports = async (config, options, targetOptions) => {
         groupBy: [
           { pattern: './src/main/webapp/i18n/nl/*.json', fileName: './i18n/nl.json' },
           { pattern: './src/main/webapp/i18n/en/*.json', fileName: './i18n/en.json' },
-          // jhipster-needle-i18n-language-webpack - JHipster will add/remove languages in this array
         ],
       },
     }),
   );
 
-  config = merge(
-    config,
-    // jhipster-needle-add-webpack-config - JHipster will add custom config
-  );
+  config = merge(config);
 
   return config;
 };

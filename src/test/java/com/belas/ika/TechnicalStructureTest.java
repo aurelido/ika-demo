@@ -33,6 +33,9 @@ class TechnicalStructureTest {
         .ignoreDependency(belongToAnyOf(IkaDemoApp.class), alwaysTrue())
         .ignoreDependency(alwaysTrue(), belongToAnyOf(
             com.belas.ika.config.Constants.class,
-            com.belas.ika.config.ApplicationProperties.class
+            com.belas.ika.config.ApplicationProperties.class,
+            com.belas.ika.config.IkaConstants.class,
+            com.belas.ika.config.IkaProperties.class,
+            com.belas.ika.config.IkaPropertiesDefaults.class
         ));
 }

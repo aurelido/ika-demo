@@ -26,18 +26,18 @@ describe('Logs Service', () => {
   describe('Service methods', () => {
     it('should get the config', () => {
       const bean: Bean = {
-        prefix: 'jhipster',
+        prefix: 'ikedev',
         properties: {
           clientApp: {
-            name: 'jhipsterApp',
+            name: 'ikaDemoApp',
           },
         },
       };
       const configProps: ConfigProps = {
         contexts: {
-          jhipster: {
+          ika: {
             beans: {
-              'tech.jhipster.config.JHipsterProperties': bean,
+              'com.belas.ika.config.IkaProperties': bean,
             },
           },
         },

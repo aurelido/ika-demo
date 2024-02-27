@@ -1,19 +1,16 @@
 {
   "home": {
-    "title": "Welkom, Java Hipster!",
+    "title": "Welkom, IKA Ontwikkelaar!",
     "subtitle": "Dit is uw startpagina",
     "logged": {
       "message": "U bent aangemeld als gebruiker \"{{username}}\"."
     },
-    "question": "Indien u vragen hebt over JHipster:",
+    "question": "Indien u vragen hebt over IKA:",
     "link": {
-      "homepage": "JHipster startpagina",
-      "stackoverflow": "JHipster op Stack Overflow",
-      "bugtracker": "JHipster bug tracker",
-      "chat": "JHipster publieke chatruimte",
-      "follow": "contacteer @jhipster op Twitter"
+      "homepage": "IKA homepage",
+      "repository": "IKA code repository",
+      "wiki": "IKA confluence"
     },
-    "like": "Als u JHipster leuk vindt, vergeet dan niet om ons een ster te geven op",
-    "github": "GitHub"
+    "codeRepo": "BitBucket"
   }
 }
